@@ -281,8 +281,7 @@ ZPlat.GameState = {
    this.fin .fixedToCamera = true;
    this.timer.stop();
    
-   
-   
+  
   /* sessionStorage.setItem("Tiempin", this.timer);
    
    this.tiempoFinal = sessionStorage.getItem("Tiempin");
@@ -290,7 +289,6 @@ ZPlat.GameState = {
    alert(this.tiempoFinal);
     */
     
-
 
   
   },

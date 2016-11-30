@@ -30,7 +30,7 @@ ZPlat.MainMenu.prototype = {
     this.add.text(this.game.width / 2, this.game.height - 90, "Videojuego desarrollado para la materia de programación", { font: "14px monospace", fill: "#fff", align: "center"}).anchor.setTo(0.5, 0.5);    
 	//Lo mismo que el texto de arriba
     this.add.text(this.game.width / 2, this.game.height - 70, "Realizado con phaser por Silvina Orengo", { font: "14px monospace", fill: "#fff", align: "center"}).anchor.setTo(0.5, 0.5); 
-	//Lo mismo que el texto de arriba.*/
+	//Lo mismo que el texto de arriba.
 
   },
 

@@ -49,11 +49,16 @@
      <select></select>
 </div>
 
+<div id="mielemento">
+<button id="traer">Ver tiempos</button>
+<button id="borrar">Borrar datos</button>
+<div id="lista"></div>
+</div>
 
-           
-           
           <script>
 		  
+		   $("#mielemento").css("display", "none");
+		   
 		  $(document).ready(function() {
 			  console.log("entro");
                     $.ajax({
@@ -111,6 +116,7 @@ $(document).ready(function() {
 
 	   document.getElementById("loguin").innerHTML="";
 	   document.getElementById("selector").innerHTML="";
+	   $("#mielemento").css("display", "block");
 			
       ZPlat.dim = ZPlat.getGameLandscapeDimensions(700, 350);
 
@@ -123,7 +129,37 @@ $(document).ready(function() {
        ZPlat.game.state.start('Boot');
     
 		
-		
+			var audio = new Audio('assets/music.mp3');
+			audio.play();
+	
+			audio.addEventListener("ended", function(){
+			audio.currentTime = 0;
+			//audio.play();	
+			//audio.stop();	
+			});
+			
+			
+$(document).ready(function(){
+ <!-- cuando el documento este listo sucede el evento ready objeto es el boton, evento clic, se deja sangria para q se entienda el codigo- funcion anonima, dentro contenido
+    $("#traer").click(function(){ <!--antes estaba el nombre de la etiqueta html o sea button pero comoa grego varios le pongo un id al button y o sea traer borrar y le pongo un numeral en vez de "Button" entre paréntesis va "#traer" (lo mismo con el div))-->
+        $.getJSON("http://juego-ninja.tk/tiempo.php", function(resultados){ 
+			
+            for(i=0; i<resultados.length; i++){
+			$.each(resultados[i], function(i, campo){ <!-- van a entrar dos datos a esta funcion, o sea le doy do parametros i y campo ------ para relacionar con el ecommerce, pongo el link de listaproductos)-->
+                $("#lista").append("<p>"+campo+"</p>"); <!-- que me agregue el dato campo y un espacio en blanco, con el <p> crea un párrafo y crea espacio en blacno uno abajo del otro -->
+            });
+			} <!-- fin bucle for-->
+        });
+    });
+
+
+    $("#borrar").click(function(){ 
+	//vaciar la pantalla
+	$("#lista").empty();
+    });
+}); 
+
+
 		
 
     }
